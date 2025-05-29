@@ -12,6 +12,7 @@ const searchRoutes = require('./routes/search');
 const skillRoutes = require('./routes/skill'); 
 const requestRoutes = require('./routes/request');
 const commentRoutes = require('./routes/comment');
+const notification = require('./routes/notification');
 const passport = require("passport");
 const session = require('express-session'); // <-- Ajout de cet import
 const path = require('path'); 
@@ -84,6 +85,7 @@ app.use('/api/search', searchRoutes);
 app.use('/api/skill', skillRoutes);
 app.use('/api/request', requestRoutes);
 app.use('/api/comment',commentRoutes);
+app.use('/api/notification',notification);
 
 
 // Use the correct port from environment variables or default to 80
