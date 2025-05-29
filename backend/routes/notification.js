@@ -73,7 +73,7 @@ router.put("/mark-read/:id", isAuthenticated, async (req, res) => {
 
     const notification = await Notification.findOne({
       where: {
-        id: notificationId,
+        ID_notification: notificationId,
         userId: userId
       }
     });
@@ -116,7 +116,7 @@ router.delete("/delete/:id", isAuthenticated, async (req, res) => {
 
     const notification = await Notification.findOne({
       where: {
-        id: notificationId,
+        ID_notification: notificationId,
         userId: userId
       }
     });
