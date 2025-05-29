@@ -1623,6 +1623,7 @@ document.addEventListener("DOMContentLoaded", () => {
     signOutBtn.addEventListener("click", () => {
       localStorage.removeItem("token");
       localStorage.removeItem("viewUserId");
+      localStorage.removeItem("currentClassId");
       window.location.href = "index.html";
     });
   }
@@ -1637,4 +1638,194 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "profil-user.html";
     });
   }
+});
+
+
+// Notification functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const notificationIcon = document.querySelector('.notification-icon');
+    const notificationList = document.querySelector('.notification-list ul');
+    const badge = document.querySelector('.badge');
+    const markAllReadBtn = document.querySelector('.mark-all-read');
+
+    // Fetch and display notifications
+    async function fetchNotifications() {
+        try {
+            const response = await fetch('http://localhost:80/api/notification/get-notifications', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch notifications');
+            }
+
+            const notifications = await response.json();
+            displayNotifications(notifications);
+            updateUnreadCount();
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    // Display notifications in the dropdown
+    function displayNotifications(notifications) {
+        notificationList.innerHTML = '';
+        
+        if (notifications.length === 0) {
+            notificationList.innerHTML = '<li class="empty">No notifications</li>';
+            return;
+        }
+
+        notifications.forEach(notification => {
+            const li = document.createElement('li');
+            li.className = notification.isRead ? '' : 'unread';
+            li.dataset.id = notification.id;
+            
+            li.innerHTML = `
+                <div class="notification-content">
+                    <p>${notification.message}</p>
+                    <small>${new Date(notification.createdAt).toLocaleString()}</small>
+                </div>
+                <button class="delete-notification" data-id="${notification.ID_notification}">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            `;
+            
+            li.addEventListener('click', async (e) => {
+                // Don't mark as read if clicking the delete button
+                if (!e.target.closest('.delete-notification')) {
+                    await markAsRead(notification.id);
+                    li.classList.remove('unread');
+                    updateUnreadCount();
+                }
+            });
+            
+            notificationList.appendChild(li);
+        });
+
+        // Add event listeners to delete buttons
+        document.querySelectorAll('.delete-notification').forEach(button => {
+            button.addEventListener('click', async (e) => {
+                e.stopPropagation();
+                const notificationId = button.dataset.id;
+                await deleteNotification(notificationId);
+                fetchNotifications(); // Refresh the list
+            });
+        });
+    }
+
+    // Update unread count badge
+    async function updateUnreadCount() {
+        try {
+            const response = await fetch('http://localhost:80/api/notification/unread-count', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch unread count');
+            }
+
+            const data = await response.json();
+            badge.textContent = data.count;
+            badge.style.display = data.count > 0 ? 'block' : 'none';
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    // Mark a notification as read
+    async function markAsRead(notificationId) {
+        try {
+            const response = await fetch(`http://localhost:80/api/notification/mark-read/${notificationId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to mark notification as read');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    // Mark all notifications as read
+    async function markAllAsRead() {
+        try {
+            const response = await fetch('http://localhost:80/api/notification/mark-all-read', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to mark all notifications as read');
+            }
+
+            // Update UI
+            document.querySelectorAll('.notification-list li.unread').forEach(li => {
+                li.classList.remove('unread');
+            });
+            updateUnreadCount();
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    // Delete a notification
+    async function deleteNotification(notificationId) {
+        try {
+            const response = await fetch(`http://localhost:80/api/notification/delete/${notificationId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to delete notification');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    // Event listeners
+    notificationIcon.addEventListener('click', function(e) {
+        e.stopPropagation();
+        fetchNotifications();
+    });
+
+    markAllReadBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        markAllAsRead();
+    });
+
+    // Close notification dropdown when clicking outside
+    document.addEventListener('click', function() {
+        notificationList.parentElement.style.display = 'none';
+    });
+
+    notificationIcon.addEventListener('click', function(e) {
+        e.stopPropagation();
+        notificationList.parentElement.style.display = 
+            notificationList.parentElement.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Initial fetch
+    updateUnreadCount();
 });
