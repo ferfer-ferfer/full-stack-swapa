@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SWAPA | Home page</title>
+    <link rel="stylesheet" href="styles/home.css" />
+    <link rel="stylesheet" href="styles/var2.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="website icon" href="icons/Logo.png" />
+  </head>
+  <body>
+    <header>
+      <div class="logo left-ele">
+        <a href="home.html">
+          <img src="icons/Logo.png" alt="SWAPA Logo" />
+        </a>
+      </div>
+
+      <div class="nav-right right-ele">
+        <a href="request.html">
+          <div class="container">
+            <div class="icon">
+              <img src="svg/add-friend.svg" alt="" />
+            </div>
+          </div>
+        </a>
+        <a href="course.html">
+          <div class="book-container container">
+            <div class="book-icon icon">
+              <img src="svg/books.svg" alt="" />
+            </div>
+          </div>
+        </a>
+        <div class="notification-container container">
+          <div class="notification-icon icon">
+            <img src="svg/bell.svg" alt="" />
+            <span class="badge">3</span>
+          </div>
+          <div class="notification-list list">
+            <div class="dropdown-header">
+              <h3>Notifications</h3>
+              <button class="mark-all-read">Mark all as read</button>
+            </div>
+            <ul>
+              
+            </ul>
+            
+          </div>
+        </div>
+
+        <div class="profile-container container">
+          <div class="profile-icon icon">
+            <img  alt="" class="circle" />
+          </div>
+          <div class="profile-list list">
+            <div class="dropdown-header user-info">
+              <div class="user-avatar">
+                <img  alt="Profile Picture" class="circle"/>
+              </div>
+              <div>
+                <h3 id="username"></h3>
+                <p id="useremail"></p>
+              </div>
+            </div>
+            <ul>
+              <li id="profile-link"><i class="fa-solid fa-user"></i> Profile</li>
+              <li id="settingbtn">
+                <i class="fa-solid fa-sliders"></i> Preferences
+              </li>
+              <li class="dark-mode">
+                <div class="left">
+                  <i class="fa-solid fa-moon"></i> Dark Mode
+                </div>
+                <div class="right">
+                  <input type="checkbox" class="checkbox" id="checkbox" />
+                  <label class="switch" for="checkbox">
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </li>
+              <li id="signout"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="secondhdr">
+      <div class="mission-container left-ele container">
+        <div class="mission-icon icon">
+          <img src="svg/list.svg" alt="" />
+        </div>
+        <div class="mission-list list">
+          <div class="dropdown-header">
+            <h3>Your Missions</h3>
+          </div>
+          <ul>
+            <li>
+              <div class="mission-item">
+                <i class="fa-solid fa-rocket"></i>
+                <div>
+                  <p class="mission-title">Teach 2 hours</p>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 75%"></div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="mission-item">
+                <i class="fa-solid fa-code"></i>
+                <div>
+                  <p class="mission-title">Learn 3 hours</p>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 45%"></div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="mission-item">
+                <i class="fa-solid fa-database"></i>
+                <div>
+                  <p class="mission-title">Accept 5 requests</p>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 20%"></div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="mission-item">
+                <i class="fa-solid fa-robot"></i>
+                <div>
+                  <p class="mission-title">Share SWAPA with your friends</p>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 0%"></div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+      <form id="credits" action="">
+      <div class="wallet-container right-ele">
+        <img src="svg/dollar.svg" alt="" />
+        <span class="credits"></span>
+      </div>
+    </form>
+    </section>
+
+    <main>
+      <div class="search-container">
+        <input type="search" placeholder="Search for a skill" />
+        <img src="svg/loupe.svg" alt="">
+      </div>
+      <div class="search-suggestions">
+        <div class="suggestion-tag">Python</div>
+        <div class="suggestion-tag">Machine Learning</div>
+        <div class="suggestion-tag">Web Development</div>
+        <div class="suggestion-tag">Data Science</div>
+      </div>
+    </main>
+
+    <!-- Settings Modal -->
+    <div class="settingsmodal" id="modal">
+      <div class="settings-sidebar">
+        <div class="settings-header">
+          <h2>Settings</h2>
+          <button class="close-btn" id="closeSettingsBtn">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="settings-sections">
+          <div class="settings-section">
+            <div class="section-header">Learning</div>
+
+            <div class="setting-item">
+              <div class="setting-info">
+                <h4 class="setting-title">Available Mode</h4>
+                <p class="setting-description">
+                  Choose whether you are available to teach or not
+                </p>
+              </div>
+              <div class="toggle-container">
+                <input type="checkbox" class="toggle-checkbox" id="focusMode" />
+                <label class="toggle-switch" for="focusMode"></label>
+              </div>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-info">
+                <h4 class="setting-title">Daily Reminders</h4>
+                <p class="setting-description">
+                  Get reminded to continue your studies
+                </p>
+              </div>
+              <div class="toggle-container">
+                <input
+                  type="checkbox"
+                  class="toggle-checkbox"
+                  id="dailyReminders"
+                  checked
+                />
+                <label class="toggle-switch" for="dailyReminders"></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <div class="section-header">Notifications</div>
+
+            <div class="setting-item">
+              <div class="setting-info">
+                <h4 class="setting-title">Push Notifications</h4>
+                <p class="setting-description">Allow browser notifications</p>
+              </div>
+              <div class="toggle-container">
+                <input
+                  type="checkbox"
+                  class="toggle-checkbox"
+                  id="pushNotifications"
+                  checked
+                />
+                <label class="toggle-switch" for="pushNotifications"></label>
+              </div>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-info">
+                <h4 class="setting-title">Email Updates</h4>
+                <p class="setting-description">
+                  Receive progress reports and tips
+                </p>
+              </div>
+              <div class="toggle-container">
+                <input
+                  type="checkbox"
+                  class="toggle-checkbox"
+                  id="emailUpdates"
+                  checked
+                />
+                <label class="toggle-switch" for="emailUpdates"></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <div class="section-header">Privacy & Security</div>
+
+            <div class="setting-item">
+              <div class="setting-info">
+                <h4 class="setting-title">Two-factor Authentication</h4>
+                <p class="setting-description">
+                  Add an extra layer of security to your account
+                </p>
+              </div>
+              <div class="toggle-container">
+                <input type="checkbox" class="toggle-checkbox" id="twoFactor" />
+                <label class="toggle-switch" for="twoFactor"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="version-info">SWAPA Learning Platform v1.0.0</div>
+      </div>
+    </div>
+
+    <script src="js/home.js"></script>
+    <script
+      src="https://kit.fontawesome.com/3bedb2ab4f.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"
+      integrity="sha512-f6bQMg6nkSRw/xfHw5BCbISe/dJjXrVGfz9BSDwhZtiErHwk7ifbmBEtF9vFW8UNIQPhV2uEFVyI/UHob9r7Cw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/TextPlugin.min.js"
+      integrity="sha512-cxH9rbrf9TrOfYMunxS2cLhFg/hIFJP9/d8SdBT1To+D5BHf6XcYN6PGtLiN9baib6ve4JDOzaPrCTRyo/8J9g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>

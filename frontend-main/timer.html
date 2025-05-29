@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SWAPA | Course Timer</title>
+    <link rel="stylesheet" href="styles/timer.css" />
+    <link rel="stylesheet" href="styles/var2.css" />
+    <link rel="website icon" href="icons/Logo.png" />
+  </head>
+  <body>
+    <button class="back-btn" id="backButton">
+      <i class="fa-solid fa-arrow-left"></i>Back
+    </button>
+    <div class="container">
+      <div class="big-card">
+        <div class="card-header">
+          <h1 class="card-title">Advanced React Development</h1>
+          <p class="card-description">Study Timer - 1 point per 2 seconds</p>
+        </div>
+
+        <div class="card-content">
+          <div class="timer-display">
+            <div class="timer-text">00:00</div>
+            <div class="points-text">0 points transfered</div>
+          </div>
+
+          <div class="users-container">
+            <div class="user-profile user-left">
+              <div class="profile-image">
+                <img src="icons/profile.png" alt="Teacher Profile" />
+                <span class="role teacher">Teacher</span>
+              </div>
+              <h3 class="user-name">Bensalah Abderrahmane</h3>
+
+              <div class="ready-indicator" id="user1-ready">Not Ready</div>
+              <button
+                class="button purple-button"
+                id="user1-button"
+                data-action="start"
+              >
+                Ready to Start
+              </button>
+            </div>
+
+            <div class="user-profile user-right">
+              <div class="profile-image">
+                <img src="icons/profile.png" alt="Learner Profile" />
+                <span class="role learner">Learner</span>
+              </div>
+              <h3 class="user-name">Abderrahmane Bn</h3>
+
+              <div class="ready-indicator" id="user2-ready">Not Ready</div>
+              <button
+                class="button blue-button"
+                id="user2-button"
+                data-action="start"
+              >
+                Ready to Start
+              </button>
+            </div>
+          </div>
+
+          <div class="separator"></div>
+
+          <div class="timer-controls">
+            <button class="button green-button" id="start-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              Start
+            </button>
+            <button
+              class="button outline-button"
+              id="pause-button"
+              style="display: none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="6" y="4" width="4" height="16"></rect>
+                <rect x="14" y="4" width="4" height="16"></rect>
+              </svg>
+              Pause
+            </button>
+            <button
+              class="button green-button"
+              id="resume-button"
+              style="display: none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              Resume
+            </button>
+            <button
+              class="button red-button"
+              id="end-button"
+              style="display: none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              </svg>
+              End
+            </button>
+            <!-- Add this right after the End button, before </div> closing the timer-controls -->
+            <div class="file-controls">
+              <button class="button outline-button" id="upload-button">
+                <input
+                  type="file"
+                  id="fileInput"
+                  multiple
+                  style="display: none"
+                />
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7,10 12,15 17,10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Upload Files
+              </button>
+
+              <button class="button outline-button" id="files-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+                  />
+                  <polyline points="13,2 13,9 20,9" />
+                </svg>
+                My Files
+              </button>
+            </div>
+          </div>
+          
+          <div class="space"></div>
+        </div>
+      </div>
+    </div>
+    <div class="window">
+      <div class="x"><i class="fa-solid fa-xmark"></i></div>
+      <h2>Are you sure you want to end the sessions</h2>
+      <p>
+        Your progress will be saved, but you'll exit the current learning
+        activity
+      </p>
+      <p>Session duration : 45mins</p>
+      <div class="why-end">
+        <h4>Why do you want to end this session :</h4>
+        <div class="cards">
+          <button class="card" id="card1" data-value="1">
+            <img src="icons/check.png" alt="" />I have completed the session
+          </button>
+          <button class="card" id="card2" data-value="2">
+            <img src="icons/sad.png" alt="" />I need to take a break
+          </button>
+          <button class="card" id="card3" data-value="3">
+            <img src="icons/alert.png" alt="" />There has been a problem
+          </button>
+          <button class="card" id="card4" data-value="4">
+            <i class="fa-solid fa-ellipsis"></i>Other reason
+          </button>
+        </div>
+      </div>
+      <div class="btns">
+        <button class="btn outline-button">Cancel</button>
+        <button class="btn">End Session</button>
+      </div>
+    </div>
+
+    <div id="toast-container"></div>
+    <div class="files-modal" id="filesModal">
+      <div class="modal-header">
+        <h2>Uploaded Files</h2>
+        <span id="closeFilesModal" style="cursor: pointer">&times;</span>
+      </div>
+      <ul id="fileList"></ul>
+    </div>
+
+    <div class="feedback-container">
+      <h2>Session Ended</h2>
+
+      <div class="session-details">
+        <div class="session-item">
+          <span>Duration:</span>
+          <span>36:50</span>
+        </div>
+
+        <div class="session-item">
+          <span>Points Earned:</span>
+          <span>17</span>
+        </div>
+      </div>
+
+      <div class="rating-section">
+        <p class="rating-title">Rate your experience:</p>
+        <div class="stars">
+          <span class="star"><i class="fa-regular fa-star"></i></span>
+          <span class="star"><i class="fa-regular fa-star"></i></span>
+          <span class="star"><i class="fa-regular fa-star"></i></span>
+          <span class="star"><i class="fa-regular fa-star"></i></span>
+          <span class="star"><i class="fa-regular fa-star"></i></span>
+        </div>
+      </div>
+
+      <div class="comment-section">
+        <p class="comment-title">Leave a comment:</p>
+        <textarea
+          placeholder="Share your thoughts about the session..."
+        ></textarea>
+      </div>
+
+      <button class="btn" id="submit">Submit Feedback</button>
+      <button class="btn" id="close">Close Session</button>
+    </div>
+
+    <script src="js/timer.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/stars.js"></script>
+    <script src="js/darkmode.js"></script>
+    <script
+      src="https://kit.fontawesome.com/3bedb2ab4f.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"
+      integrity="sha512-f6bQMg6nkSRw/xfHw5BCbISe/dJjXrVGfz9BSDwhZtiErHwk7ifbmBEtF9vFW8UNIQPhV2uEFVyI/UHob9r7Cw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/TextPlugin.min.js"
+      integrity="sha512-cxH9rbrf9TrOfYMunxS2cLhFg/hIFJP9/d8SdBT1To+D5BHf6XcYN6PGtLiN9baib6ve4JDOzaPrCTRyo/8J9g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>

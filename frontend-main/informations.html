@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>informations</title>
+         <link rel="website icon" href="icons/Logo.png">
+        <link rel ="stylesheet" href="styles/stylele.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+    </head>
+    <body class="info-body ">
+        
+        <div class="info-section">
+            <a href="welcome.html"class="back-button"><i class="fa-solid fa-chevron-left"></i>   Back</a>
+            <div class="info-container">
+               <h2>Complete your profile</h2>
+                <div class="progress">
+                    <div class="step"></div>
+                    <div class="step-active"></div>
+                    <div class="step"></div>
+                    <div class="step"></div>
+                </div>
+                <p class="subtitle">Please provide your personal details to complete your registration</p>
+                <div class="profile-wrapper">
+                    <div class="profile-pic">
+                       <div class="circle">
+                        <i class="fa-solid fa-camera" id="userIcon"></i>
+                        <img id="userImg" style="display: none;" alt="profile" />
+                         <div class="pen" id="editProfilImg"><i class="fa-solid fa-pen"></i></div>
+                       </div>
+                       <input type="file"id="profile_picture"style="display:none;"accept="image/*">
+                       <label for="profil">Add profile picture</label>
+                    </div>
+                  <div class="form">
+                    <form class="form-wrapper" id="profile-update-form" enctype="multipart/form-data">
+                        <div class="row">
+                          <div class="first-row">
+                            <div class="input-container">
+                              <label for="firstName">First name</label> 
+                              <input type="text" id="firstName" placeholder="Enter your first name" required>
+                            </div>
+                            <div class="input-container">
+                              <label for="lastName">Last name</label>
+                              <input type="text" id="lastName" placeholder="Enter your last name" required>
+                            </div>
+                          </div>
+                          <div class="input-container">
+                            <label for="userName">Enter your user name</label>
+                            <input type="text" id="userName" placeholder="Enter your user name" required>
+                        
+                          </div>
+                          <div class="input-container">
+                            <label for="birth">Date of birth</label>
+                            <input type="date" id="birth"  onfocus="(this.type='date')" required>
+                            
+                          </div>
+                          <div class="input-container">
+                            <label for="account" class="account">Connect your accounts</label>
+                            <br>
+                            <label for="discord">Discord<i class="fa-brands fa-discord"></i></label>
+                            <input type="text" id="discord" placeholder="@Username" required>
+                            
+                          </div>
+                         <div class="input-container">
+                            <label for="telegram">Telegram<i class="fa-brands fa-telegram"></i></label>
+                            <input type="telegram" id="telegram" placeholder="@Username" required>
+                          </div>
+                          <div class="input-container">
+                             <button class="continue" type="submit">Continue</button>
+                            
+                          </div>
+                          
+                        </div>
+                      </form>
+                      
+                  </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            //uploade photo
+            const penIcon = document.querySelector('.pen');
+const fileInput = document.getElementById('profile_picture');
+const userImg = document.getElementById('userImg');
+const userIcon = document.getElementById('userIcon');
+
+penIcon.addEventListener('click', () => {
+  fileInput.click();
+});
+
+fileInput.addEventListener('change', (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      userImg.src = e.target.result;
+      userImg.style.display = 'block';
+      userIcon.style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
+        </script>
+        <script src="js/information.js"></script>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Verification</title>
+    <link rel="website icon" href="icons/Logo.png" />
+    <link rel="stylesheet" href="styles/verify.css" />
+    <link rel="stylesheet" href="styles/var2.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img src="icons/Logo_2__1_-removebg-preview.png" alt="" />
+        <h1>SWAPA</h1>
+      </div>
+      <h2>Email Verification</h2>
+      <p>Enter the verification code sent to your email.</p>
+
+      <form id="verifyForm">
+        <div class="form-group">
+          <label for="email">Email Address:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="verificationCode">Verification Code:</label>
+          <input
+            type="text"
+            id="verificationCode"
+            name="verificationCode"
+            placeholder="Enter the code"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn">Verify</button>
+      </form>
+
+      <div id="message"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/darkmode.js"></script>
+    
+    <script src="js/verify.js"></script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <link rel="website icon" href="icons/Logo.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .loading {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="loading">Authenticating, please wait...</div>
+
+ <script>
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get('token');
+  const newUser = params.get('newUser'); 
+  const error = params.get('error');
+
+  if (token) {
+    localStorage.setItem('token', token);
+
+    if (newUser === 'true') {
+      window.location.href = "/welcome.html";
+    } else {
+      window.location.href = "/home.html";
+    }
+  } else {
+    document.body.innerHTML = `<h2>Authentication failed.</h2>
+                                ${error ? "<p>Error: " + error + "</p>" : ""}`;
+  }
+</script>
+
+</body>
+</html>

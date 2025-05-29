@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>profile page</title>
+         <link rel="website icon" href="icons/Logo.png">
+         <link rel="stylesheet" href="styles/var2.css">
+        <link rel="stylesheet" href="styles/profil.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+    </head>
+    <body >
+        <div class="profile-container zoom-in zoom-delay-1">
+            <div class="user-info  zoom-in zoom-delay-2 ">
+             <div class="right">
+                <img src="image/profil.jpg"class="user-img zoom-in zoom-delay-3" id="userImg">
+                <div class="user-rating zoom-in zoom-delay-4">
+                    <div class="rating-number">4.5</div>
+                    <div class="rating-stars">
+                      <i class="fas fa-star " data-star="1"></i>
+                      <i class="fas fa-star " data-star="2"></i>
+                      <i class="fas fa-star " data-star="3"></i>
+                      <i class="fas fa-star " data-star="4"></i>
+                      <i class="fas fa-star " data-star="5"></i>
+                    </div>
+                  </div>
+                  
+            
+              </div>
+              <div class="left">
+                  <div class="profile-header">
+                    <div class="profile-info">
+                      <h3 id="userRealName" placeholder="amina">  Name: </h3>
+                       <h3 id="userName">  User name: </h3>
+                       <h3 id="userAge">  Age: </h3>
+                       <h3 id="userLocation"><i class="fa-solid fa-location-dot"></i>  Location </h3>
+                    </div>
+                    
+                      
+                     
+                     <button onclick="openModal()" class="edit-btn demand-btn">
+                      <i class="fa-solid fa-paper-plane"></i>  Demande
+                    </button>
+                    
+                    
+                  </div>
+              </div> 
+            </div>
+            <hr class="section-divider"/>
+            <div class="about zoom-in zoom-delay-4">
+                <h2>About</h2>
+                <p id="userAbout">  loading....</p>
+            </div>
+
+            <div class="contact-icons">
+                <a href=""class="icon-discord"><img src="svg/discord.svg" alt=""></a>
+                <a href=""class="icon-telegram"><img src="icons/telegram.png" alt=""></a>
+                <a href=""class="icon-gmail"><img src="icons/gmail.png" alt=""></a>
+            </div>
+        </div>
+            </div>
+            
+           
+
+        <div class="section-row">
+             <!---teaching box-->
+         <div class="section-box zoom-in zoom-delay-1 zoom-from-left" id="Teaching">
+            <h2><i class="fa-solid fa-person-chalkboard"></i>   Teaching</h2><!--<i class="fa-solid fa-chalkboard-user"></i>-->
+            <div id="teachingSubjects"class="subjects-list"> </div>
+         </div>
+         <!--learning box-->
+         <div class="section-box zoom-in zoom-delay-1 zoom-from-right">
+            <h2><i class="fa-solid fa-user-graduate"></i>   Learning</h2>
+            <div id="learningSubjects"class="subjects-list"> </div>
+         </div>
+        </div>
+        <!--comments-->
+          <div class="comments-section zoom-in zoom-delay-2 zoom-rotate">
+            <div id="commentBoxWrapper" data-receiver-id="">
+             <h3 class="comments-title">Comments <span id="commentCount">0</span></h3>
+            
+             <div class="comment-input-box">
+               <textarea class="comment-box" id="commentBox" placeholder="Add a comment..."></textarea>
+               <div class="star-rating">
+                 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+               </div>
+               <div class="button-group">
+                 <button class="send-button" id="sendComment">Send</button>
+                 <button class="cancel-button" id="cancelComment">Cancel</button>
+               </div>
+             </div>
+             <!-- Comment list -->
+             <div class="comments-list" id="commentsList"></div></div>
+            
+           </div> 
+
+
+        <!----pen pop up-->
+        
+        <div class="custom-modal" id="myModal">
+          <div class="modal-content zoom-in">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Learn request</h2>
+            <form id="exchangeForm">
+              
+              <div class="popup-box">
+                <label for="selectedSkill"></label>
+                <div class="input-box">
+                  <select id="selectedSkill" name="selectedSkill">
+                    <option value=""selected disabled hidden>Choose a skill</option>
+                    <!-- Les options seront ajoutées par JavaScript -->
+                  </select>
+                </div>
+              </div>
+        
+              <div class="popup-box">
+                <label for="message"></label>
+                <textarea id="message" rows="4" placeholder="Write your message here..." required></textarea>
+              </div>
+              <div class="popup-box time-row">
+                <label for="time" class="time">Time:</label>
+                <input type="text" id="timeInput" placeholder="-- -- h" />
+              </div>
+              
+              
+              <button type="submit" class="send-button">Demand</button>
+              
+              
+            </form>
+          </div>
+        </div>
+        
+        
+     <script src="js/darkmode.js"></script>
+        <script src="js/profil.js"></script>
+    </body>
+</html>

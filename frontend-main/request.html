@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>REQUEST PAGE</title>
+    <link rel="website icon" href="icons/Logo.png" />
+    <link rel="stylesheet" href="styles/request.css" />
+    <link rel="stylesheet" href="styles/var2.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="top-title">Requests</div>
+    </div>
+
+    <div class="requests">
+      <div class="tab-switcher">
+        <button class="tab active" onclick="setActiveTab(this, 'sent')">
+          Sent Requests
+        </button>
+        <button class="tab" onclick="setActiveTab(this, 'received')">
+          Received Requests
+        </button>
+      </div>
+
+      <div id="sentRequests" class="request-section active">
+        <div class="bas-title">Requests I've sent</div>
+      </div>
+
+      <div id="receivedRequests" class="request-section">
+        <div class="bas-title">Requests I've received</div>
+      </div>
+    </div>
+    <script src="js/darkmode.js"></script>
+    <script src="js/request.js"></script>
+  </body>
+</html>

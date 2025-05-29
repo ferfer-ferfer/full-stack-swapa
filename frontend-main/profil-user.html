@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SWAPA | Profile Page</title>
+    <link rel="website icon" href="icons/Logo.png" />
+    <link rel="stylesheet" href="styles/var2.css" />
+    <link rel="stylesheet" href="styles/profil-user.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="profile-container zoom-in zoom-delay-1">
+        <div class="user-info zoom-in zoom-delay-2">
+            <div class="profile-left">
+                <div class="user-img-container">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" class="user-img zoom-in zoom-delay-3" id="userImg" alt="Profile Picture">
+                    <div class="pen" id="editProfilImg"><i class="fa-solid fa-pen"></i></div>
+                    <input type="file" id="uploadImg" style="display:none;" accept="image/*">
+                </div>
+                
+                <div class="user-rating zoom-in zoom-delay-4">
+                    <div class="rating-number">4.5</div>
+                    <div class="rating-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="user-details">
+                <div class="profile-header">
+                    <div class="profile-info">
+                        <h3 id="userRealName"><i class="fa-solid fa-user"></i>John Doe</h3>
+                        <h3 id="userName"><i class="fa-solid fa-at"></i>johndoe123</h3>
+                        <h3 id="userAge"><i class="fa-solid fa-calendar"></i>25 years old</h3>
+                        <h3 id="userLocation"><i class="fa-solid fa-location-dot"></i>New York, USA</h3>
+                    </div>
+                    <div class="edit-profile">
+                        <button id="editProfileBtn" class="edit-btn" onclick="openModal()">
+                            <i class="fa-solid fa-pen-to-square"></i> Edit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider"/>
+
+        <div class="about zoom-in zoom-delay-4">
+            <h2>About</h2>
+            <p id="userAbout">Passionate educator and lifelong learner. I love sharing knowledge and helping others discover new skills. When I'm not teaching, you can find me exploring new technologies and reading about innovative teaching methods.</p>
+        </div>
+
+        <div class="contact-icons">
+            <a href="#" class="icon-discord"><img src="icons/discord.png" alt="Discord"></a>
+            <a href="#" class="icon-telegram"><img src="icons/telegram.png" alt="Telegram"></a>
+            <a href="#" class="icon-gmail"><img src="icons/gmail.png" alt="Gmail"></a>
+        </div>
+
+        <div class="section-row">
+            <div class="section-box zoom-in zoom-delay-1" id="Teaching">
+                <h2><i class="fa-solid fa-person-chalkboard"></i>Teaching</h2>
+                <div id="teachingSubjects" class="subjects-list">
+                    <div class="subject-card">JavaScript</div>
+                    <div class="subject-card">React</div>
+                    <div class="subject-card">Web Development</div>
+                    <div class="subject-card">CSS</div>
+                </div>
+            </div>
+
+            <div class="section-box zoom-in zoom-delay-1">
+                <h2><i class="fa-solid fa-user-graduate"></i>Learning</h2>
+                <div id="learningSubjects" class="subjects-list">
+                    <div class="subject-card">Machine Learning</div>
+                    <div class="subject-card">Data Science</div>
+                    <div class="subject-card">Python</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comments-section zoom-in zoom-delay-2">
+            <h3 class="comments-title">Comments <span id="commentCount">(3)</span></h3>
+            <div class="comments-list" id="commentsList">
+                <div class="comment">
+                  
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div id="edit-profile-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 class="edit-title">Edit Profile</h3>
+            
+            <div class="input-group">
+                <div class="field">
+                    <label for="edit-userName">Username:</label>
+                    <input type="text" id="edit-userName" placeholder="Enter username">
+                </div>
+                <div class="field">
+                    <label for="edit-location">Location:</label>
+                    <input type="text" id="edit-location" placeholder="Enter location">
+                </div>
+                <div class="field">
+                    <label for="edit-about">About:</label>
+                    <input type="text" id="edit-about" placeholder="Tell us about yourself">
+                </div>
+            </div>
+
+            <div class="modal-subjects-row">
+                <div class="section-box" id="modalTeachingBox">
+                    <div class="titre-teaching">
+                        <h3><i class="fa-solid fa-person-chalkboard"></i>Teaching</h3>
+                        <input type="text" id="new-teaching-subject" placeholder="Add subject" style="display: none;">
+                        <button class="add-subject-btn" onclick="showTeachingInput()"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div id="edit-teaching-list" class="subjects-list">
+                        <div class="subject-item">JavaScript <button class="remove-btn">×</button></div>
+                        <div class="subject-item">React <button class="remove-btn">×</button></div>
+                    </div>
+                </div>
+
+                <div class="section-box" id="modalLearningBox">
+                    <div class="titre-learning">
+                        <h3><i class="fa-solid fa-user-graduate"></i>Learning</h3>
+                        <input type="text" id="new-learning-subject" placeholder="Add subject" style="display: none;">
+                        <button class="add-subject-btn" onclick="showLearningInput()"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div id="edit-learning-list" class="subjects-list">
+                        <div class="subject-item">Machine Learning <button class="remove-btn">×</button></div>
+                        <div class="subject-item">Python <button class="remove-btn">×</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <h3>Connect your accounts</h3>
+                <div class="field">
+                    <label for="edit-discord">Discord <i class="fa-brands fa-discord"></i></label>
+                    <input type="text" id="edit-discord" placeholder="Discord username">
+                </div>
+                <div class="field">
+                    <label for="edit-telegram">Telegram <i class="fa-brands fa-telegram"></i></label>
+                    <input type="text" id="edit-telegram" placeholder="Telegram username">
+                </div>
+                <div class="field">
+                    <label for="edit-gmail">Email <i class="fa-solid fa-envelope"></i></label>
+                    <input type="text" id="edit-gmail" placeholder="Email address">
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button onclick="saveProfile()">Save Changes</button>
+                <button onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/darkmode.js"></script>
+    <script src="js/profil-user.js"></script>
+  </body>
+</html>

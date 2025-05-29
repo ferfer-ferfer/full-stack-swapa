@@ -1,0 +1,1167 @@
+@import url(style.css);
+
+html {
+    background-color: var(--background);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text-primary);
+    height: 100vh;
+}
+#signout {
+    color: #ef4444;
+}
+
+/* Header styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 30px;
+    border-bottom: 1px solid var(--border);
+    background-color: var(--card-bg);
+    z-index: 100;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+    transform: translate(7px, -1px);
+}
+
+/* Navigation styles */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+i {
+    cursor: pointer;
+}
+.list .signout {
+    color: #ef4444;
+}
+/* Generic dropdown styles */
+.container {
+    position: relative;
+}
+
+img {
+    width: 35px;
+}
+
+.icon {
+    cursor: pointer;
+    padding: 5px 5px 5px 0px;
+
+    img {
+        cursor: pointer;
+    }
+}
+
+.mission-item i:active {
+    color: var(--primary-light);
+}
+
+.list {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 110%;
+    min-width: 320px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 150;
+    /* Increased z-index for dropdown lists */
+    overflow: hidden;
+}
+
+.container:hover .list,
+.container:focus-within .list,
+.container.active .list {
+    display: block;
+}
+
+
+/* Dropdown header styles */
+.dropdown-header {
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-header h3 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.dropdown-footer {
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.dropdown-footer a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.dropdown-footer a:hover {
+    text-decoration: underline;
+}
+
+/* List item styles */
+.list ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.list li {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.list li:hover {
+    background-color: var(--border);
+}
+
+.list li i {
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* Book dropdown specifics */
+.book-list li {
+    padding: 14px 16px;
+}
+
+/* Notification dropdown specifics */
+.notification-container .badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--primary-light);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--card-bg);
+}
+
+.mark-all-read {
+    font-size: 0.75rem;
+    color: var(--primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.mark-all-read:hover {
+    text-decoration: underline;
+}
+
+.notification-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+.notification-list li {
+    padding: 14px 16px;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-text {
+    margin: 0 0 4px 0;
+    line-height: 1.4;
+}
+
+.notification-time {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+}
+
+.unread {
+    background-color: rgba(0, 110, 255, 0.04);
+}
+
+/* User profile specifics */
+.user-info {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-avatar img {
+    width: 100%;
+}
+
+.user-info h3 {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.user-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+}
+
+/* dark mode styling */
+.dark-mode {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* The switch - the box around the slider */
+.right {
+    width: 40px;
+    height: 24px;
+    position: relative;
+}
+
+/* Hide default HTML checkbox */
+.checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.switch {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #e9e9eb;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+
+/* The slider */
+.slider {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: calc(50% - 20px/2 - 8px);
+    top: calc(50% - 20px/2);
+    border-radius: 50%;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15), 0px 2px 1px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease-out;
+    cursor: pointer;
+}
+
+.checkbox:checked+.switch {
+    background-color: var(--primary-light);
+}
+
+.checkbox:checked+.switch .slider {
+    left: calc(50% - 20px/2 + 8px);
+    top: calc(50% - 20px/2);
+}
+
+
+/* Second header styles */
+.secondhdr {
+    position: fixed;
+    top: 80px;
+    /* Adjust based on header height (padding + content) */
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 40px;
+    z-index: 99;
+    box-sizing: border-box;
+}
+
+.wallet-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--card-bg);
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+
+.credits {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Mission dropdown specifics */
+.mission-icon {
+    img {
+        width: 30px;
+    }
+}
+
+/* Mission dropdown positioning fix */
+.mission-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 10px;
+    min-width: 320px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1500;
+    overflow: hidden;
+}
+
+/* Make sure this doesn't get overridden by the general dropdown styles */
+.mission-container:hover .mission-list,
+.mission-container:focus-within .mission-list,
+.mission-container.active .mission-list {
+    display: block;
+}
+
+/* Fix for mission item icons */
+.mission-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.mission-item i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    background-color: var(--primary-light);
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+}
+
+.mission-title {
+    margin: 0 0 6px 0;
+    font-weight: 500;
+}
+
+.progress-bar {
+    height: 6px;
+    background-color: var(--shadow);
+    border-radius: 3px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 3px;
+}
+
+/* Main search section */
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background);
+    position: relative;
+    padding-top: 130px;
+    position: relative;
+    z-index: 1;
+
+}
+
+.search-container {
+    position: relative;
+    width: 50%;
+    max-width: 600px;
+}
+
+
+main input[type="search"] {
+    width: 100%;
+    height: 56px;
+    border-radius: 28px;
+    font-family: 'Inter', sans-serif;
+    padding: 0 56px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-size: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+main input[type="search"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 4px 20px var(--shadow);
+}
+
+/* Add this along with your other search input styles */
+main input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>");
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin-right: -10px;
+    opacity: 0.7;
+    transition: all 0.2s;
+}
+
+main input[type="search"]::-webkit-search-cancel-button:hover {
+    opacity: 1;
+    scale: 1.2;
+}
+
+main .search-container img {
+    position: absolute;
+    font-size: 1.2rem;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--text-secondary);
+}
+
+.search-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.suggestion-tag {
+    padding: 8px 16px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.suggestion-tag:hover {
+    background-color: var(--primary-light);
+    border-color: var(--primary-light);
+}
+
+
+
+
+/* ChatGPT-style Settings Modal */
+.settingsmodal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    /* Higher than any dropdown */
+    opacity: 0;
+}
+
+.settingsmodal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.settings-sidebar {
+    width: 650px;
+    /* Increased from 450px */
+    max-height: 85vh;
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.settingsmodal.active .settings-sidebar {
+    transform: translateY(0);
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    /* Increased padding */
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background-color: var(--card-bg);
+    z-index: 10;
+    border-radius: 12px 12px 0 0;
+}
+
+.settings-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    /* Increased font size */
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    width: 36px;
+    height: 36px;
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s, color 0.2s;
+}
+
+.close-btn:hover {
+    color: var(--text-primary);
+    transform: scale(1.05);
+}
+
+/* Custom scrollbar */
+.settings-sections {
+    padding: 8px 0;
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+/* For Webkit browsers (Chrome, Safari, etc.) */
+.settings-sections::-webkit-scrollbar {
+    width: 8px;
+}
+
+.settings-sections::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 4px 0;
+}
+
+.settings-sections::-webkit-scrollbar-thumb {
+    background-color: var(--border);
+    border-radius: 20px;
+    border: 2px solid var(--card-bg);
+}
+
+.settings-sections::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-tertiary);
+}
+
+.settings-section {
+    margin-bottom: 20px;
+    /* Increased spacing */
+    padding: 0 4px;
+    /* Side padding for scrollbar space */
+}
+
+.section-header {
+    padding: 12px 24px 8px;
+    /* Increased horizontal padding */
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.setting-item {
+    padding: 16px 24px;
+    /* Increased padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 8px;
+    margin: 0 8px;
+}
+
+.setting-item:hover {
+    background-color: var(--border);
+}
+
+.setting-info {
+    flex: 1;
+}
+
+.setting-title {
+    margin: 0 0 4px;
+    /* Increased margin */
+    font-size: 1rem;
+    /* Increased font size */
+    font-weight: 500;
+}
+
+.setting-description {
+    margin: 0;
+    font-size: 0.85rem;
+    /* Increased font size */
+    color: var(--text-tertiary);
+    line-height: 1.4;
+}
+
+/* Radio options */
+.radio-options {
+    margin: 0 8px;
+    padding: 4px 0 8px;
+    border-top: 1px solid var(--border);
+    display: none;
+}
+
+.radio-option {
+    padding: 12px 24px 12px 52px;
+    /* Increased padding */
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 8px;
+}
+
+.radio-option:hover {
+    background-color: var(--hover-bg);
+}
+
+.radio-checkmark {
+    position: absolute;
+    top: 14px;
+    left: 24px;
+    height: 18px;
+    /* Increased size */
+    width: 18px;
+    background-color: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 50%;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.radio-option:hover .radio-checkmark {
+    background-color: var(--hover-bg);
+}
+
+.radio-option input[type="radio"]:checked~.radio-checkmark {
+    border-color: var(--primary);
+}
+
+.radio-option input[type="radio"]:checked~.radio-checkmark:after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+}
+
+.radio-label {
+    font-size: 0.95rem;
+    /* Increased font size */
+}
+
+.show-radio-options .radio-options {
+    display: block;
+}
+
+.show-radio-options .dropdown-value i {
+    transform: rotate(180deg);
+    transition: transform 0.2s ease;
+}
+
+/* Toggle checkbox styling */
+
+
+/* Toggle Switch */
+.toggle-container {
+    width: 36px;
+    height: 20px;
+    position: relative;
+}
+
+.toggle-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.toggle-switch {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: .3s;
+    border-radius: 20px;
+}
+
+.toggle-switch:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+.toggle-checkbox:checked+.toggle-switch {
+    background-color: var(--primary);
+}
+
+.toggle-checkbox:checked+.toggle-switch:before {
+    transform: translateX(16px);
+}
+
+
+.version-info {
+    padding: 14px 24px;
+    /* Increased padding */
+    text-align: center;
+    color: var(--text-tertiary);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+}
+
+/* Update the responsive adjustments section of your CSS */
+@media (max-width: 768px) {
+    .search-container {
+        width: 80%;
+    }
+
+    header {
+        margin: 0;
+        padding-left: 0;
+        padding-right: 20px;
+    }
+
+    .nav-right {
+        gap: 1rem;
+    }
+
+    .secondhdr {
+        padding: 1rem;
+    }
+
+    .list {
+        min-width: 280px;
+        position: absolute;
+        /* Change back to absolute from fixed */
+        right: 0;
+        /* Reset right value */
+        top: 110%;
+        /* Use percentage-based positioning like in desktop */
+        z-index: 2000;
+    }
+
+    .settings-section .btn {
+        font-weight: 500;
+        padding: 3px 10px;
+        font-size: 0.9rem;
+    }
+
+    /* Remove the specific positioning for each dropdown */
+    /* Instead, let them inherit the default positioning from non-mobile styles */
+
+    /* For the mission list which needs special positioning */
+    .mission-container .mission-list {
+        left: 0;
+        right: auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .settings-sidebar {
+        width: 95%;
+        height: 90vh;
+        border-radius: 20px;
+    }
+
+    .settings-header h2 {
+        font-size: 1rem;
+    }
+
+    .close-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.9rem;
+    }
+
+    /* Update the list styles for very small screens */
+    .list {
+        position: absolute;
+        right: 0;
+        top: 100%;
+        min-width: 300px;
+        margin-top: 10px;
+        font-size: 1rem;
+        background-color: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        z-index: 1500;
+        overflow: hidden;
+    }
+
+    .notification-list {
+        transform: translateX(20%);
+    }
+
+    .book-list {
+        transform: translateX(25%);
+    }
+
+    .setting-item {
+        padding: 10px 12px;
+    }
+
+    .btn {
+        padding: 2px 10px;
+        font-size: .9rem;
+    }
+
+    .setting-title {
+        font-size: 0.85rem;
+    }
+
+    .setting-description {
+        font-size: 0.7rem;
+    }
+}
+
+/*  search functionality styling */
+
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    z-index: 2001;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+    background-color: var(--border);
+    transform: translateY(-2px);
+}
+
+/* Adjust search results positioning and scrolling */
+.search-results {
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    border-radius: 12px;
+    z-index: 1000;
+}
+
+/* Improve scrollbar styling for search results */
+.search-results::-webkit-scrollbar {
+    width: 8px;
+    display: none;
+}
+
+.search-results::-webkit-scrollbar-track {
+    background: transparent;
+    display: none;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+    background-color: var(--border);
+    border-radius: 8px;
+    border: 2px solid var(--background);
+    display: none;
+}
+
+.search-results::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-tertiary);
+}
+
+/* Profile card styles */
+.profile-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 0;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-dark);
+}
+
+.profile-card-header {
+    display: flex;
+    gap: 16px;
+}
+
+.profile-image {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.profile-info h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.profile-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #FFB800;
+}
+
+.rating-value {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-left: 4px;
+}
+
+.profile-experience {
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+}
+
+.profile-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background-color: var(--border);
+    color: var(--text-secondary);
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.contact-button {
+    align-self: flex-end;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+}
+
+.contact-button:hover {
+    background-color: var(--primary-light);
+    transform: scale(1.02);
+}
+
+/* No results message */
+.no-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+    text-align: center;
+    color: var(--text-tertiary);
+}
+
+.no-results i {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--border);
+}
+
+.no-results h3 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.no-results p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+.contact-button{
+    font-family: 'poppins', sans-serif;
+}
+.circle {
+  width: 40px;         
+  height: 40px;         
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+
+    /* Hide back button text on mobile */
+    .back-button {
+        padding: 8px;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+    }
+
+    .back-button .back-text {
+        display: none;
+    }
+
+    .profile-card-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-skills {
+        justify-content: center;
+    }
+
+    .contact-button {
+        align-self: center;
+        width: 100%;
+    }
+
+    .buttons-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .search-results {
+        width: calc(100% - 0px);
+        top: 80px;
+        max-height: calc(100vh - 150px);
+    }
+
+    .search-container.mobile-search {
+        width: calc(100% - 70px);
+        margin-left: 60px;
+    }
+}

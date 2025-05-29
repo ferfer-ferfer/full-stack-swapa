@@ -1,0 +1,28 @@
+
+:root {
+    /* Light Mode Colors */
+    --primary: #5D3FD3;  /* More vibrant purple */
+    --primary-dark: #4A30A8;
+    --primary-light: #8A67E6;
+    --background: #F4F6F9;  /* Softer background */
+    --card-bg: #FFFFFF;
+    --text-primary: #2C3E50;
+    --text-secondary: #4A5568;
+    --text-tertiary: #718096;
+    --border: #E2E8F0;
+    --shadow: rgba(0,0,0,0.08);
+}
+
+[data-theme="dark"] {
+    /* Dark Mode Colors */
+    --primary: #5D3FD3;
+    --primary-dark: #4A30A8;
+    --primary-light: #8A67E6;
+    --background: #121824;
+    --card-bg: #1E2430;
+    --text-primary: #E2E8F0;
+    --text-secondary: #CBD5E0;
+    --text-tertiary: #A0AEC0;
+    --border: #2D3748;
+    --shadow: rgba(0,0,0,0.2);
+}

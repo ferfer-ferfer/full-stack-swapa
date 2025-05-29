@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Courses Page</title>
+    <link rel="website icon" href="icons/Logo.png" />
+  <link rel="stylesheet" href="styles/course.css">
+  <link rel="stylesheet" href="styles/var2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar fade-in-slow">
+      <button onclick="window.location.href='home.html'">
+        <i class="fas fa-plus"></i><span>Course</span>
+      </button>
+      <button onclick="showSection('mycourses-section')">
+        <i class="fas fa-book"></i><span>My Courses</span>
+      </button>
+      <button onclick="showSection('teaching-section')">
+        <i class="fas fa-chalkboard-teacher"></i><span>Teaching Courses</span>
+      </button>
+    </div>
+
+    <!-- Teaching Section -->
+    <div id="teaching-section" class="main-area fade-in-slow" style="display: block;">
+      <div class="main-content">
+                 <div class="left">
+                    <h2> Teaching courses</h2>
+                    <p id="Pteaching"></p>
+                
+                 </div>
+                 <div class="right fade-in-slow">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search courses">
+                    </div>
+                    <img id="profileImgT" class="avatar">
+                 </div>
+                 </div>
+                 <p>In progress</p>
+          <div class="bar in-progress"></div>
+
+          <p>Completed</p>
+          <div class="bar completed"></div>
+        </div>
+
+
+    <!-- My Courses Section -->
+    <div id="mycourses-section" class="main-area fade-in-slow" style="display: none;">
+      <div class="main-content">
+                 <div class="left">
+                    <h2> My courses</h2>
+                    <p id="Plearning"></p>
+                
+                 </div>
+                 <div class="right fade-in-slow">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search courses">
+                    </div>
+                    
+                    <img id="profileImgL"  class="avatar">
+                 </div>
+                 </div>
+                 <p>In progress</p>
+          <div class="bar in-progress"></div>
+
+          <p>Completed</p>
+          <div class="bar completed"></div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('.main-area').forEach(section => {
+        section.style.display = 'none';
+      });
+      document.getElementById(sectionId).style.display = 'block';
+    }
+  </script>
+  <script src="js/course.js"></script>
+  <script src="js/darkmode.js"></script>
+</body>
+</html>
